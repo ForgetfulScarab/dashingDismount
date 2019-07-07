@@ -1,5 +1,5 @@
 ## Interface: 11302
 ## Title: dashingDismount
 ## Notes: Dismount
-## Author: DashingSplash
+## Author: DashingSplash with input from MunkDev @WoWInterface
 dashingDismount.lua
