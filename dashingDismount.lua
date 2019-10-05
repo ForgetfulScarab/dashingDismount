@@ -46,11 +46,11 @@ local keyState = GetCVarBool("ActionButtonUseKeyDown")
 frame:EnableKeyboard(true)
 frame:SetPropagateKeyboardInput(true)
 frame:SetScript('OnKeyDown', function(self, key, ...)	
-	if IsMounted() then
+    if IsMounted() then
         local prefix = SecureButton_GetModifierPrefix()
         local binding = GetBindingAction(prefix .. key)
-      
-		local button = actionButtons[binding]
+        local button = actionButtons[binding]
+ 
         if button then
             local action = ActionButton_CalculateAction(button)
 			
@@ -69,15 +69,11 @@ frame:SetScript('OnKeyDown', function(self, key, ...)
 			return
         end
  
-        local button = stanceButtons[binding]
+        button = stanceButtons[binding]
         if button and not button:GetChecked() then
-			local actionType, spellID = GetActionInfo(action)
-			
-			if spellID ~= nil and not protectedSkills[spellID] then
-				Dismount()
-			end
+            Dismount()
         end
-	end
+    end
 end)
 
 frameSetCVar:RegisterEvent("PLAYER_MOUNT_DISPLAY_CHANGED")
